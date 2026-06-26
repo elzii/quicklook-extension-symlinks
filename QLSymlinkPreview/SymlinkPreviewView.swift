@@ -9,6 +9,26 @@ struct SymlinkPreviewView: View {
     private var typeEmoji: String { info.kind == .alias ? "↔️" : "🔗" }
     private var typeLabel: String { info.kind == .alias ? "ALIAS" : "SYMLINK" }
     private var fileIcon: NSImage { NSWorkspace.shared.icon(forFile: info.fileURL.path) }
+    private var sourceButtonTitle: String { "Show \(info.kind == .alias ? "Alias" : "Symlink") in Finder" }
+
+    private var targetSizeText: String? {
+        guard let target = info.targetURL else { return nil }
+        guard let values = try? target.resourceValues(forKeys: [.isDirectoryKey, .fileSizeKey, .totalFileSizeKey]) else {
+            return nil
+        }
+        if values.isDirectory == true {
+            return nil
+        }
+
+        guard let bytes = values.totalFileSize ?? values.fileSize else {
+            return nil
+        }
+
+        let formatter = ByteCountFormatter()
+        formatter.allowedUnits = [.useBytes, .useKB, .useMB, .useGB, .useTB]
+        formatter.countStyle = .file
+        return formatter.string(fromByteCount: Int64(bytes))
+    }
 
     var body: some View {
         ZStack {
@@ -50,6 +70,9 @@ struct SymlinkPreviewView: View {
                         path:  info.fileURL.path,
                         color: .blue
                     )
+                    Button(sourceButtonTitle) {
+                        NSWorkspace.shared.activateFileViewerSelecting([info.fileURL])
+                    }
 
                     Divider()
 
@@ -60,6 +83,15 @@ struct SymlinkPreviewView: View {
                             path:  target.path,
                             color: info.targetExists ? .green : .red
                         )
+                        if let targetSizeText {
+                            Text(targetSizeText)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        Button("Show Target in Finder") {
+                            NSWorkspace.shared.activateFileViewerSelecting([target])
+                        }
+
                         if !info.targetExists {
                             HStack(spacing: 6) {
                                 Image(systemName: "exclamationmark.triangle.fill")
