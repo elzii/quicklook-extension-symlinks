@@ -52,8 +52,16 @@ fi
 
 echo "▶ Signed TeamIdentifier: $TEAM"
 echo "▶ Purging old registration..."
-if [ -d "$INSTALL_DIR/$APP_NAME.app/Contents/PlugIns/QLSymlinkPreview.appex" ]; then
-  pluginkit -r "$INSTALL_DIR/$APP_NAME.app/Contents/PlugIns/QLSymlinkPreview.appex" 2>/dev/null || true
+OLD_APPEX_PATHS=$(pluginkit -m -A -D -v -p com.apple.quicklook.preview 2>/dev/null \
+  | grep -i 'com.azizzo.QLSymlinkViewer.Preview' \
+  | awk -F'\t' '{print $4}' \
+  | sed '/^[[:space:]]*$/d' || true)
+
+if [ -n "${OLD_APPEX_PATHS:-}" ]; then
+  while IFS= read -r old_appex; do
+    [ -n "$old_appex" ] || continue
+    pluginkit -r "$old_appex" 2>/dev/null || true
+  done <<< "$OLD_APPEX_PATHS"
 fi
 
 echo "▶ Installing to $INSTALL_DIR/$APP_NAME.app ..."
