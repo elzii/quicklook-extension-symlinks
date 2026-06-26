@@ -25,17 +25,25 @@ struct SymlinkFileInfo {
             return .symlink
         }
 
-        // 2) If not a symlink, check Finder alias metadata only.
-        do {
-            let values = try url.resourceValues(forKeys: [.isAliasFileKey])
-            if values.isAliasFile == true {
-                return .alias
-            }
-        } catch {
-            return nil
+        // 2) If not a symlink, check Finder alias metadata first.
+        if let values = try? url.resourceValues(forKeys: [.isAliasFileKey]),
+           values.isAliasFile == true {
+            return .alias
         }
 
-        // 3) Everything else is regular.
+        // 3) Fallback: some alias files may not report NSURLIsAliasFileKey
+        // reliably in extension contexts. Resolve alias and only accept it
+        // when the resolved path differs from the source path.
+        if let resolved = try? URL(
+            resolvingAliasFileAt: url,
+            options: [.withoutUI, .withoutMounting]
+        ) {
+            if resolved.standardizedFileURL.path != url.standardizedFileURL.path {
+                return .alias
+            }
+        }
+
+        // 4) Everything else is regular.
         return nil
     }
 
@@ -113,14 +121,28 @@ final class PreviewViewController: NSViewController, QLPreviewingController {
     func preparePreviewOfSearchableItem(identifier: String,
                                         queryString: String?,
                                         completionHandler handler: @escaping (Error?) -> Void) {
-        handler(nil)
+        let fileURL: URL?
+        if identifier.hasPrefix("file://"),
+           let url = URL(string: identifier),
+           url.isFileURL {
+            fileURL = url
+        } else if identifier.hasPrefix("/") {
+            fileURL = URL(fileURLWithPath: identifier)
+        } else {
+            fileURL = nil
+        }
+
+        guard let fileURL else {
+            handler(notSymlinkError())
+            return
+        }
+
+        preparePreviewOfFile(at: fileURL, completionHandler: handler)
     }
 
     // MARK: - Private
 
     private func notSymlinkError() -> NSError {
-        NSError(domain: "com.azizzo.QLSymlinkPreview",
-                code: 1,
-                userInfo: [NSLocalizedDescriptionKey: "Not a symlink or alias — passing to next handler"])
+        NSError(domain: "com.azizzo.QLSymlinkPreview", code: 1)
     }
 }
