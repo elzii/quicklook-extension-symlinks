@@ -1,0 +1,126 @@
+import Cocoa
+import Quartz
+import SwiftUI
+
+// MARK: - Data model
+
+enum SymlinkKind {
+    case symlink
+    case alias
+}
+
+struct SymlinkFileInfo {
+    let fileURL: URL
+    let kind: SymlinkKind
+    /// Direct link destination (as written in the symlink), resolved to an absolute path.
+    let targetURL: URL?
+    /// Whether the resolved target path exists on disk.
+    let targetExists: Bool
+
+    static func detectKind(at url: URL) -> SymlinkKind? {
+        // 1) Exact symlink detection (never follows links).
+        var st = Darwin.stat()
+        if Darwin.lstat(url.path, &st) == 0,
+           (Int(st.st_mode) & Int(S_IFMT)) == Int(S_IFLNK) {
+            return .symlink
+        }
+
+        // 2) If not a symlink, check Finder alias metadata only.
+        do {
+            let values = try url.resourceValues(forKeys: [.isAliasFileKey])
+            if values.isAliasFile == true {
+                return .alias
+            }
+        } catch {
+            return nil
+        }
+
+        // 3) Everything else is regular.
+        return nil
+    }
+
+    static func resolve(url: URL) -> SymlinkFileInfo {
+        let kind = detectKind(at: url) ?? .symlink
+
+        var targetURL: URL?
+        if kind == .alias {
+            targetURL = try? URL(resolvingAliasFileAt: url, options: [])
+        } else {
+            // For symlinks, show realpath when available.
+            let resolved = url.resolvingSymlinksInPath()
+            if resolved.standardized != url.standardized {
+                targetURL = resolved
+            }
+
+            // For broken symlinks, keep showing the raw destination.
+            if targetURL == nil,
+               let dest = try? FileManager.default.destinationOfSymbolicLink(atPath: url.path) {
+                targetURL = URL(fileURLWithPath: dest,
+                                relativeTo: url.deletingLastPathComponent()).standardized
+            }
+        }
+
+        let targetExists: Bool
+        if let t = targetURL {
+            targetExists = FileManager.default.fileExists(atPath: t.path)
+        } else {
+            targetExists = false
+        }
+
+        return SymlinkFileInfo(fileURL: url, kind: kind, targetURL: targetURL, targetExists: targetExists)
+    }
+}
+
+// MARK: - QuickLook preview controller
+
+final class PreviewViewController: NSViewController, QLPreviewingController {
+
+    override var nibName: NSNib.Name? { nil }
+
+    override func loadView() {
+        view = NSView(frame: NSRect(x: 0, y: 0, width: 520, height: 300))
+    }
+
+    func preparePreviewOfFile(at url: URL, completionHandler handler: @escaping (Error?) -> Void) {
+        let kind = SymlinkFileInfo.detectKind(at: url)
+
+        // If the file is neither a symlink nor an alias, bail out so QuickLook
+        // can fall through to the next registered handler (e.g. the system folder preview).
+        guard kind != nil else {
+            handler(notSymlinkError())
+            return
+        }
+
+        let info = SymlinkFileInfo.resolve(url: url)
+
+        let hosting = NSHostingController(rootView: SymlinkPreviewView(info: info))
+        addChild(hosting)
+
+        let hv = hosting.view
+        hv.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(hv)
+
+        NSLayoutConstraint.activate([
+            hv.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            hv.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            hv.topAnchor.constraint(equalTo: view.topAnchor),
+            hv.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+
+        handler(nil)
+    }
+
+    func preparePreviewOfSearchableItem(identifier: String,
+                                        queryString: String?,
+                                        completionHandler handler: @escaping (Error?) -> Void) {
+        handler(nil)
+    }
+
+    // MARK: - Private
+
+    private func notSymlinkError() -> NSError {
+        NSError(domain: "com.azizzo.QLSymlinkPreview",
+                code: 1,
+                userInfo: [NSLocalizedDescriptionKey: "Not a symlink or alias — passing to next handler"])
+    }
+}

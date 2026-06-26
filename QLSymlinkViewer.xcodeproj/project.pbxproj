@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B9AC7E24B91646607A899C7 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56370E8ED161DC2766022735 /* PreviewViewController.swift */; };
+		4F67BEDD5BEE0D33ACD597BD /* QLSymlinkPreview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 46C6923B5E6F6B420D72FB22 /* QLSymlinkPreview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		62D15E8F3536E42A8F1ECCF4 /* QLSymlinkViewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A5580F49A4055547721758 /* QLSymlinkViewerApp.swift */; };
+		8A419544222731E363E36C2F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D42004970AD258D8430031E /* Cocoa.framework */; };
+		CF1A32DB27FD75A71F179CAA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F583A5F451FF4D28CBE7022E /* ContentView.swift */; };
+		DC03B6C530AD4AB8C4C8612C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E046FA591D6CC035E67BC06F /* Assets.xcassets */; };
+		E53C3B3BCF26B20B7F2A9746 /* SymlinkPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8BB45F21E1349D1B4D40F6 /* SymlinkPreviewView.swift */; };
+		EB94070AD75B6BECEE9F87C1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D42004970AD258D8430031E /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		60932C9928971234B3D4C38A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E828CC29BC2034648489743 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1757E656A7854DEDCC36D9DD;
+			remoteInfo = QLSymlinkPreview;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E1C8579176F1598296FBA7BE /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4F67BEDD5BEE0D33ACD597BD /* QLSymlinkPreview.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0D42004970AD258D8430031E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		3586DEA718371FCF61F0C606 /* QLSymlinkViewerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLSymlinkViewerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		46C6923B5E6F6B420D72FB22 /* QLSymlinkPreview.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QLSymlinkPreview.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E8BB45F21E1349D1B4D40F6 /* SymlinkPreviewView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SymlinkPreviewView.swift; sourceTree = "<group>"; };
+		56370E8ED161DC2766022735 /* PreviewViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		8D1DFE0C87377D12C582DD89 /* QLSymlinkViewerApp.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = QLSymlinkViewerApp.entitlements; sourceTree = "<group>"; };
+		B84A785FD63998C536A7DC8F /* QLSymlinkPreview.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = QLSymlinkPreview.entitlements; sourceTree = "<group>"; };
+		C7E6EF8D65BA30051BCD89E3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB33DC632AFCD1BEFC7AF1BE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E046FA591D6CC035E67BC06F /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F583A5F451FF4D28CBE7022E /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F7A5580F49A4055547721758 /* QLSymlinkViewerApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QLSymlinkViewerApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		51C2852A0C137FFE50CD988D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A419544222731E363E36C2F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65915198BEC2C0F8F2A5910E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB94070AD75B6BECEE9F87C1 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		204AD426878CC64880698BB3 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				0D42004970AD258D8430031E /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		5BA7DBFC0613B76C099D7A25 /* QLSymlinkPreview */ = {
+			isa = PBXGroup;
+			children = (
+				56370E8ED161DC2766022735 /* PreviewViewController.swift */,
+				4E8BB45F21E1349D1B4D40F6 /* SymlinkPreviewView.swift */,
+				CB33DC632AFCD1BEFC7AF1BE /* Info.plist */,
+				B84A785FD63998C536A7DC8F /* QLSymlinkPreview.entitlements */,
+			);
+			path = QLSymlinkPreview;
+			sourceTree = "<group>";
+		};
+		926473184851B2D6266CC337 = {
+			isa = PBXGroup;
+			children = (
+				AB6DE6C56770917F4A38D3B0 /* Products */,
+				B20D3EDE190A239BBA69947D /* Frameworks */,
+				E7F897A0EA93911692DA8852 /* QLSymlinkViewerApp */,
+				5BA7DBFC0613B76C099D7A25 /* QLSymlinkPreview */,
+			);
+			sourceTree = "<group>";
+		};
+		AB6DE6C56770917F4A38D3B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3586DEA718371FCF61F0C606 /* QLSymlinkViewerApp.app */,
+				46C6923B5E6F6B420D72FB22 /* QLSymlinkPreview.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B20D3EDE190A239BBA69947D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				204AD426878CC64880698BB3 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7F897A0EA93911692DA8852 /* QLSymlinkViewerApp */ = {
+			isa = PBXGroup;
+			children = (
+				F7A5580F49A4055547721758 /* QLSymlinkViewerApp.swift */,
+				F583A5F451FF4D28CBE7022E /* ContentView.swift */,
+				E046FA591D6CC035E67BC06F /* Assets.xcassets */,
+				C7E6EF8D65BA30051BCD89E3 /* Info.plist */,
+				8D1DFE0C87377D12C582DD89 /* QLSymlinkViewerApp.entitlements */,
+			);
+			path = QLSymlinkViewerApp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0D0320069E8D3AC358F37109 /* QLSymlinkViewerApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E39E4537A248DCE9C02F79E1 /* Build configuration list for PBXNativeTarget "QLSymlinkViewerApp" */;
+			buildPhases = (
+				F31818DF600D42D65D86BEFD /* Sources */,
+				65915198BEC2C0F8F2A5910E /* Frameworks */,
+				9F92F8D1012DC6FB73684EC1 /* Resources */,
+				E1C8579176F1598296FBA7BE /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB4426980F7E24F0AE62D186 /* PBXTargetDependency */,
+			);
+			name = QLSymlinkViewerApp;
+			productName = QLSymlinkViewerApp;
+			productReference = 3586DEA718371FCF61F0C606 /* QLSymlinkViewerApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1757E656A7854DEDCC36D9DD /* QLSymlinkPreview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F10AFDAB8C5DF5E65F3964EB /* Build configuration list for PBXNativeTarget "QLSymlinkPreview" */;
+			buildPhases = (
+				43C5B32AD8CFA6CB73654B7D /* Sources */,
+				51C2852A0C137FFE50CD988D /* Frameworks */,
+				BCB49315E7E098F06AE84680 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QLSymlinkPreview;
+			productName = QLSymlinkPreview;
+			productReference = 46C6923B5E6F6B420D72FB22 /* QLSymlinkPreview.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9E828CC29BC2034648489743 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					0D0320069E8D3AC358F37109 = {
+						DevelopmentTeam = 3HGJUWCLUC;
+						ProvisioningStyle = Automatic;
+					};
+					1757E656A7854DEDCC36D9DD = {
+						DevelopmentTeam = 3HGJUWCLUC;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 26F85A7EEDB0CEC5AACF0326 /* Build configuration list for PBXProject "QLSymlinkViewer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 926473184851B2D6266CC337;
+			productRefGroup = AB6DE6C56770917F4A38D3B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0D0320069E8D3AC358F37109 /* QLSymlinkViewerApp */,
+				1757E656A7854DEDCC36D9DD /* QLSymlinkPreview */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9F92F8D1012DC6FB73684EC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC03B6C530AD4AB8C4C8612C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCB49315E7E098F06AE84680 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		43C5B32AD8CFA6CB73654B7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B9AC7E24B91646607A899C7 /* PreviewViewController.swift in Sources */,
+				E53C3B3BCF26B20B7F2A9746 /* SymlinkPreviewView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F31818DF600D42D65D86BEFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62D15E8F3536E42A8F1ECCF4 /* QLSymlinkViewerApp.swift in Sources */,
+				CF1A32DB27FD75A71F179CAA /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EB4426980F7E24F0AE62D186 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = QLSymlinkPreview;
+			target = 1757E656A7854DEDCC36D9DD /* QLSymlinkPreview */;
+			targetProxy = 60932C9928971234B3D4C38A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4A6C1D591C8EEE0B28869A3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7F67D65EC1CD4C3191C09E42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = QLSymlinkPreview/QLSymlinkPreview.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3HGJUWCLUC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = QLSymlinkPreview/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.azizzo.QLSymlinkViewer.Preview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5;
+			};
+			name = Release;
+		};
+		81A42358EE91D5FABD59F549 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5;
+			};
+			name = Debug;
+		};
+		8505FDB3CF31A063C8289284 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = QLSymlinkPreview/QLSymlinkPreview.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3HGJUWCLUC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = QLSymlinkPreview/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.azizzo.QLSymlinkViewer.Preview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5;
+			};
+			name = Debug;
+		};
+		B401226CDE9E78F00BB1D017 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QLSymlinkViewerApp/QLSymlinkViewerApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3HGJUWCLUC;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = QLSymlinkViewerApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.azizzo.QLSymlinkViewer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5;
+			};
+			name = Debug;
+		};
+		FFD08F8F4E7999CAF7A9AA2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QLSymlinkViewerApp/QLSymlinkViewerApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3HGJUWCLUC;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = QLSymlinkViewerApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.azizzo.QLSymlinkViewer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		26F85A7EEDB0CEC5AACF0326 /* Build configuration list for PBXProject "QLSymlinkViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81A42358EE91D5FABD59F549 /* Debug */,
+				4A6C1D591C8EEE0B28869A3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E39E4537A248DCE9C02F79E1 /* Build configuration list for PBXNativeTarget "QLSymlinkViewerApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFD08F8F4E7999CAF7A9AA2D /* Release */,
+				B401226CDE9E78F00BB1D017 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F10AFDAB8C5DF5E65F3964EB /* Build configuration list for PBXNativeTarget "QLSymlinkPreview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F67D65EC1CD4C3191C09E42 /* Release */,
+				8505FDB3CF31A063C8289284 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9E828CC29BC2034648489743 /* Project object */;
+}
