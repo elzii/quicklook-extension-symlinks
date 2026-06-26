@@ -52,10 +52,23 @@ fi
 
 echo "▶ Signed TeamIdentifier: $TEAM"
 echo "▶ Purging old registration..."
-OLD_APPEX_PATHS=$(pluginkit -m -A -D -v -p com.apple.quicklook.preview 2>/dev/null \
-  | grep -i 'com.azizzo.QLSymlinkViewer.Preview' \
-  | awk -F'\t' '{print $4}' \
-  | sed '/^[[:space:]]*$/d' || true)
+OLD_APPEX_PATHS=$(python3 - <<'PY'
+import subprocess, sys
+
+cmd = ["pluginkit", "-m", "-A", "-D", "-v", "-p", "com.apple.quicklook.preview"]
+try:
+    proc = subprocess.run(cmd, capture_output=True, text=True, timeout=8)
+except subprocess.TimeoutExpired:
+    print("⚠️  pluginkit listing timed out; continuing install without purge.", file=sys.stderr)
+    sys.exit(0)
+
+for line in proc.stdout.splitlines():
+    if "com.azizzo.QLSymlinkViewer.Preview".lower() in line.lower():
+        parts = line.split("\t")
+        if len(parts) >= 4 and parts[3].strip():
+            print(parts[3].strip())
+PY
+)
 
 if [ -n "${OLD_APPEX_PATHS:-}" ]; then
   while IFS= read -r old_appex; do
