@@ -11,3 +11,4 @@ DerivedData/
 # Swift Package Manager
 .build/
 
+generate_project.rb
